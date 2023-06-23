@@ -1,0 +1,12 @@
+##dependency
+streamlit
+numpy
+pandas
+nltk
+sklearn
+notebook
+PyYAML
+matplotlib
+
+##local packages -
+-e . 
