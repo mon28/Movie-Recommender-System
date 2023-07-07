@@ -20,7 +20,8 @@ A Recommender System that suggests top 5 most similar movies to the one selected
 ```bash
 git clone https://github.com/mon28/Movie-Recommender-System.git
 cd Movie-Recommender-System
-conda create -n movie python=3.7.10 -y
+conda create -n movie-rec python=3.7.10 -y
+conda activate movie-rec
 ```
 
 #### STEP 02: Install requirements
