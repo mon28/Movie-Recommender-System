@@ -3,10 +3,12 @@ streamlit
 numpy
 pandas
 nltk
-sklearn
+scikit-learn
 notebook
 PyYAML
 matplotlib
+python-box==6.0.2
+ensure==1.0.2
 
 ##local packages -
 -e . 

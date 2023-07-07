@@ -1,0 +1,33 @@
+artifacts_root: artifacts
+
+data_ingestion:
+  root_dir: artifacts/data_ingestion
+  source_URL: https://github.com/mon28/Datasets/raw/main/tmdb5000_movies_data.zip
+  local_data_file: artifacts/data_ingestion/data.zip
+  unzip_dir: artifacts/data_ingestion/
+  
+data_validation:
+  root_dir: artifacts/data_validation
+  credits_csv_file: artifacts/data_ingestion/tmdb_5000_credits.csv
+  movies_csv_file: artifacts/data_ingestion/tmdb_5000_movies.csv
+  data_filename: movie_list.pkl
+  cleaned_data_filename: clean_data.csv
+
+data_transformation:
+  root_dir: artifacts/data_transformation
+  data_path: artifacts/data_validation
+  data_file: clean_data.csv
+  transformed_filename: transformed_data.npy
+
+model_training:
+  model_path: artifacts/model_training
+  model_name: similarity.pkl
+  data_path: artifacts/data_transformation
+  data_file: transformed_data.npy
+
+model_inference:
+  dataset_path: artifacts/data_validation/movie_list.pkl
+  model_path: artifacts/model_training/similarity.pkl
+  MOVIE_DETAILS_URL: https://api.themoviedb.org/3/movie/{}?api_key={}&language=en-US
+  API_KEY: db506164c931d7833faff849411bd271
+  POSTER_API_BASE_URL: https://image.tmdb.org/t/p/w500/
