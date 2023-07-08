@@ -11,14 +11,7 @@ from main import TrainingPipeline
 class App(object):
     def __init__(self, config=ConfigurationManager()):
         self.recommender = MovieRecommender()
-        self.movies = self.recommender.movies
-
-
-    def recommend_movie(self, movie_title):
-        try:
-            return self.recommender.get_recommendations(movie_title)
-        except Exception as e:
-            raise AppException(e, sys) from e
+        self.movies = self.recommender.get_movies()
     
 
     def train_engine(self):
@@ -33,7 +26,7 @@ class App(object):
 
     def recommendation_engine(self, selected_movie):
         try:
-            recommended_movies_titles, recommended_movies_posters = self.recommend_movie(selected_movie)
+            recommended_movies_titles, recommended_movies_posters = self.recommender.get_recommendations(selected_movie)
             col1, col2, col3, col4, col5 = st.columns(5)
             with col1:
                 st.text(recommended_movies_titles[0])
@@ -75,4 +68,3 @@ if __name__ == '__main__':
     if st.button('Show Recommendations'):
         app.recommendation_engine(selected_movie)
         
-

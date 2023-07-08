@@ -43,3 +43,7 @@ class ModelInference(object):
             return self.config.POSTER_API_BASE_URL + poster_path
         except Exception as e:
             raise AppException(e, sys) from e
+        
+    
+    def get_movies(self):
+        return self.movies

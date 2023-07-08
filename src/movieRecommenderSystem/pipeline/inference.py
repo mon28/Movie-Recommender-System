@@ -6,7 +6,9 @@ class MovieRecommender(object):
         config = ConfigurationManager()
         model_inference_config = config.get_model_inference_config()
         self.model_inference = ModelInference(model_inference_config)
-        self.movies = self.model_inference.movies
 
     def get_recommendations(self, movie_name): 
         return self.model_inference.get_recommendations(movie_name)
+    
+    def get_movies(self):
+        return self.model_inference.get_movies()
